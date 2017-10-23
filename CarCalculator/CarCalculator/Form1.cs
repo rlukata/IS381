@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CarCalculator
@@ -40,11 +33,11 @@ namespace CarCalculator
             AboutPanel.Controls.Add(AboutBoxLabel);
 
             //About Form
-            Form About = new Form();
-            About.Size = new System.Drawing.Size(300, 150);
-            About.Text = "About Car Calulator";
-            About.Controls.Add(AboutPanel);
-            About.ShowDialog();
+            Form AboutForm = new Form();
+            AboutForm.Size = new System.Drawing.Size(300, 150);
+            AboutForm.Text = "About Car Calulator";
+            AboutForm.Controls.Add(AboutPanel);
+            AboutForm.ShowDialog();
         }
 
         private void calculateToolStripMenuItem_Click(object sender, EventArgs e)
