@@ -46,9 +46,9 @@
             this.CarCalcMenuStrip = new System.Windows.Forms.MenuStrip();
             this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.calculateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.compareToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.compareToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MyLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.InstallmentsNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.InterestRateUpDown)).BeginInit();
@@ -347,21 +347,14 @@
             // calculateToolStripMenuItem
             // 
             this.calculateToolStripMenuItem.Name = "calculateToolStripMenuItem";
-            this.calculateToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.calculateToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.calculateToolStripMenuItem.Text = "Calculate";
             this.calculateToolStripMenuItem.Click += new System.EventHandler(this.calculateToolStripMenuItem_Click);
-            // 
-            // compareToolStripMenuItem
-            // 
-            this.compareToolStripMenuItem.Name = "compareToolStripMenuItem";
-            this.compareToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
-            this.compareToolStripMenuItem.Text = "Compare";
-            this.compareToolStripMenuItem.Click += new System.EventHandler(this.compareToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -371,6 +364,13 @@
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            // 
+            // compareToolStripMenuItem
+            // 
+            this.compareToolStripMenuItem.Name = "compareToolStripMenuItem";
+            this.compareToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.compareToolStripMenuItem.Text = "Compare";
+            this.compareToolStripMenuItem.Click += new System.EventHandler(this.compareToolStripMenuItem_Click);
             // 
             // CarCalForm
             // 

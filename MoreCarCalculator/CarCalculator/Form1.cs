@@ -61,21 +61,12 @@ namespace CarCalculator
         {
             Compare myComparison = new Compare();
 
-            //combobox
-            ComboBox myComboBox = new ComboBox();
-            //foreach (String labelText in myComparison.Car1())
-            //{
-            //    myComboBox.Text += labelText + "\n";
-            //}
-
             //Compare label 1
             Label CompareBoxLabel1 = new Label();
             CompareBoxLabel1.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             CompareBoxLabel1.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            CompareBoxLabel1.Size = new System.Drawing.Size(270, 260);
-            //CompareBoxLabel1.Text = myComparison.Car1().Text;
-
-            foreach (String labelText in myComparison.Car1().Text)
+            CompareBoxLabel1.Size = new System.Drawing.Size(290, 275);
+            foreach (String labelText in myComparison.Car1())
             {
                 CompareBoxLabel1.Text += labelText + "\n";
             }
@@ -83,14 +74,12 @@ namespace CarCalculator
             //Compare label 2
             Label CompareBoxLabel2 = new Label();
             CompareBoxLabel2.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            //CompareBoxLabel2.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            CompareBoxLabel2.Size = new System.Drawing.Size(270, 260);
-            CompareBoxLabel2.Text = myComparison.Car2().Text;
-
-            //foreach (String labelText in myComparison.Car2())
-            //{
-            //    CompareBoxLabel2.Text += labelText + "\n";
-            //}
+            CompareBoxLabel2.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            CompareBoxLabel2.Size = new System.Drawing.Size(290, 275);
+            foreach (String labelText in myComparison.Car2())
+            {
+                CompareBoxLabel2.Text += labelText + "\n";
+            }
 
             //About Panel
             TableLayoutPanel ComparePanel = new System.Windows.Forms.TableLayoutPanel();
@@ -99,16 +88,14 @@ namespace CarCalculator
             ComparePanel.TabIndex = 0;
             ComparePanel.ColumnCount = 2;
             ComparePanel.RowCount = 1;
-            ComparePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60.0F));
-            ComparePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40.0F));
+            ComparePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0F));
+            ComparePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0F));
             ComparePanel.Controls.Add(CompareBoxLabel1, 0, 0);
             ComparePanel.Controls.Add(CompareBoxLabel2, 1, 0);
-            ComparePanel.Controls.Add(myComboBox, 1, 0);
-
 
             Form compareForm = new Form();
             compareForm.Size = new System.Drawing.Size(650, 350);
-            compareForm.Text = "Compare Car Calulator";
+            compareForm.Text = "About Car Calulator";
             compareForm.Controls.Add(ComparePanel);
             compareForm.Show();
         }
@@ -140,45 +127,48 @@ namespace CarCalculator
         }
     }
 
-    // Compare class compares different cars based on different arguments
-    class Compare
+    //Car  abstract class creates a structure so that car can be defined by different traits
+    abstract class Car
     {
-        Car myCar = new Car();
-        ComboBox tempComboBox = new ComboBox();
-        static int[] firstCar  = { 0, 0, 0, 1 };
-        static int[] secondCar = { 3, 4, 0, 2 };
-        static int[] thirdCar = { 2, 2, 1, 0 };
-        int[][] myCars = { firstCar, secondCar, thirdCar };
-
-        public ComboBox Car1()
+        public string[] carBrand()
         {
-            for (int i = 0 ; myCars.Length > i; i++)
-            {
-                string[] compare1 = new string[] { "Brand: " + myCar.carBrand[myCars[i][0]], "Engine Type: " + myCar.carEngine[myCars[i][1]],
-                "Car type: " + myCar.carType[myCars[i][2]], "Passengers capacity: " + myCar.passengers[myCars[i][3]] };
-                tempComboBox.Text = compare1[i] + "\n";
-            }
-            return tempComboBox;
+            return new string[] { "Mercedes-Benz", "Volvo", "Ford", "Tesla" };
+        }
+        public string[] carEngine()
+        {
+            return new string[] { "V6", "V8", "2.4", "2.0", "EVC" };
+        }
+        public string[] carType()
+        {
+            return new string[] { "sedan", "coupe", "crossover", "hatchback", "convertible" };
         }
 
-        public ComboBox Car2()
+        public string[] passengers()
         {
-            for (int i = 0; myCars.Length > i; i++)
-            {
-                string[] compare2 = new string[] { "Brand: " + myCar.carBrand[myCars[i][0]], "Engine Type: " + myCar.carEngine[myCars[i][1]],
-                "Car type: " + myCar.carType[myCars[i][2]], "Passengers capacity: " + myCar.passengers[myCars[i][3]] };
-                tempComboBox.Text = compare2[i] + "\n";
-            }
-            return tempComboBox;
+            return new string[] { "2", "4", "5" };
+        }
+
+        public int ArraySize()
+        {
+            return 4;
         }
     }
 
-    // Car class creates a structure so that car can be defined by different traits
-    class Car
+    // Compare class compares different cars based on different arguments
+    class Compare : Car
     {
-        public string[] carBrand = new string[] {"Mercedes-Benz", "Volvo", "Ford", "Tesla"};
-        public string[] carEngine = new string[] { "V6", "V8", "2.4", "2.0", "EVC" };
-        public string[] carType = new string[] {"sedan", "coupe", "crossover", "hatchback", "convertible" };
-        public string[] passengers = new string[] { "2", "4", "5" };
+        public string[] Car1()
+        {
+            string[] compare1 = { "Brand: " + carBrand()[0], "Engine Type: " + carEngine()[0],
+                "Car type: " + carType()[0], "Passengers capacity: " + passengers()[1] };
+            return compare1;
+        }
+
+        public string[] Car2()
+        {
+            string[] compare2 = { "Brand: " + carBrand()[3], "Engine Type: " + carEngine()[4],
+                "Car type: " + carType()[0], "Passengers capacity: " + passengers()[2] };
+            return compare2;
+        }
     }
 }
